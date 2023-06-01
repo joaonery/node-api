@@ -9,7 +9,12 @@ router.get('/cidades', CidadesController.getAll);
 
 router.get('/cidade/:id', CidadesController.getById);
 
-router.post('/cidades', CidadesController.Create);
+router.post(
+  '/cidades',
+  CidadesController.createBodyValidation,
+  CidadesController.createQueryValidation,
+  CidadesController.Create
+);
 
 router.put('/cidade/:id', CidadesController.Update);
 
