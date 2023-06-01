@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { StatusCodes } from 'http-status-codes';
 
 import { CidadesController } from './../controllers';
 
@@ -11,9 +10,8 @@ router.get('/cidade/:id', CidadesController.getById);
 
 router.post(
   '/cidades',
-  CidadesController.createBodyValidation,
-  CidadesController.createQueryValidation,
-  CidadesController.Create
+  CidadesController.createValidation,
+  CidadesController.create
 );
 
 router.put('/cidade/:id', CidadesController.Update);
