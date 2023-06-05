@@ -4,14 +4,22 @@ import { CidadesController } from './../controllers';
 
 const router = Router();
 
-router.get('/cidades', CidadesController.getAll);
-
-router.get('/cidade/:id', CidadesController.getById);
-
 router.post(
   '/cidades',
   CidadesController.createValidation,
   CidadesController.create
+);
+
+router.get(
+  '/cidades',
+  CidadesController.getAllValidation,
+  CidadesController.getAll
+);
+
+router.get(
+  '/cidade/:id',
+  CidadesController.getByIdValidation,
+  CidadesController.getById
 );
 
 router.put('/cidade/:id', CidadesController.Update);
