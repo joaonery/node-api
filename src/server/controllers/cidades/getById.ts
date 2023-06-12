@@ -3,20 +3,18 @@ import * as yup from 'yup';
 import { validation } from '../../shared/middleware/validation';
 import { StatusCodes } from 'http-status-codes';
 
-interface IQueryProps {
-  page?: number;
-  limit?: number;
-  filter?: string;
+interface IParamProps {
+  id?: number;
 }
 
 export const getByIdValidation = validation((getSchema) => ({
-  query: getSchema<IQueryProps>(yup.object().shape({
-    page: yup.number().optional().moreThan(0),
-    limit: yup.number().optional().moreThan(0),
-    filter: yup.string().optional(),
+  params: getSchema<IParamProps>(yup.object().shape({
+    id: yup.number().integer().required().moreThan(0),
   })),
 }));
 
-export const getById = (req: Request, res: Response) => {
-  return res.send('GetById!');
+export const getById = async (req: Request<IParamProps>, res: Response) => {
+  console.log(req.params);
+
+  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado!');
 };

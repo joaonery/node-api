@@ -22,8 +22,16 @@ router.get(
   CidadesController.getById
 );
 
-router.put('/cidade/:id', CidadesController.Update);
+router.put(
+  '/cidade/:id',
+  CidadesController.updateByIdValidation,
+  CidadesController.updateById
+);
 
-router.delete('/cidade/:id', CidadesController.Delete);
+router.delete(
+  '/cidade/:id',
+  CidadesController.deleteByIdValidation,
+  CidadesController.deleteById
+);
 
 export { router };
