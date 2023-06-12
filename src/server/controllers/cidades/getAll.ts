@@ -22,15 +22,3 @@ export const getAll = async (req: Request<{}, {}, {}, IQueryProps>, res: Respons
 
   return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado!');
 };
-
-export const getByIdValidation = validation((getSchema) => ({
-  query: getSchema<IQueryProps>(yup.object().shape({
-    page: yup.number().optional().moreThan(0),
-    limit: yup.number().optional().moreThan(0),
-    filter: yup.string().optional(),
-  })),
-}));
-
-export const getById = (req: Request, res: Response) => {
-  return res.send('GetById!');
-};
