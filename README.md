@@ -4,9 +4,6 @@ Rest API, developed in Node with TypeScript from [🏆 Curso de API Rest, Node e
 
 **Technologies**
   * Node.js
-  
   * TypeScript
-  
   * Express
-
   * Jest
